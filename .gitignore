@@ -1,0 +1,15 @@
+node_modules
+
+.cache
+.env
+.vercel
+.output
+
+/build/
+/public/build
+/api/index.js
+/api/index.js.map
+
+app/styles/tailwind-build.css
+localhost-key.pem
+localhost.pem
