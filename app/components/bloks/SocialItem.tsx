@@ -1,5 +1,7 @@
 import { storyblokEditable } from "@storyblok/react";
-const SocialItem = ({ blok }) => {
+import type { SocialItemStoryblok } from "../../../component-types-sb.d.ts";
+
+const SocialItem = ({ blok }: SocialItemStoryblok) => {
   const { icon, url } = blok;
   return (
     <a

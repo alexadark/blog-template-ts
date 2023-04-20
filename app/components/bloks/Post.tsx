@@ -1,44 +1,14 @@
 import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 import { useLoaderData, Link, useParams } from "@remix-run/react";
-
 import { format } from "date-fns";
+import type {
+  PostStoryblok,
+  CategoryStoryblok,
+  TagStoryblok,
+} from "../../../component-types-sb.d.ts";
 
-interface Category {
-  name: string;
-  full_slug: string;
-  _uid: string;
-}
-
-interface Tag {
-  name: string;
-  full_slug: string;
-  _uid: string;
-}
-
-interface sbComponentProps {
-  _uid: string;
-  component: string;
-  [key: string]: any;
-}
-
-interface PostProps {
-  blok: {
-    _uid: string;
-    headline: string;
-    content: any;
-    categories: Category[];
-    author: {
-      name: string;
-    };
-    image: {
-      filename: string;
-    };
-    tags: Tag[];
-  };
-}
-
-const Post = ({ blok }: PostProps) => {
+const Post = ({ blok }: PostStoryblok) => {
   const { publishDate, id, name } = useLoaderData();
   const slug = useParams()["*"];
 
@@ -60,13 +30,13 @@ const Post = ({ blok }: PostProps) => {
         {render(content)}
         <div>
           <h3>Categories</h3>
-          {categories?.map((c: Category) => (
+          {categories?.map((c: CategoryStoryblok) => (
             <Link to={`/${c.full_slug}`} key={c._uid}>
               <span>{c.name}</span>
             </Link>
           ))}
           <h3>Tags</h3>
-          {tags?.map((t: Tag) => (
+          {tags?.map((t: TagStoryblok) => (
             <Link to={`/${t.full_slug}`} key={t._uid}>
               <span>{t.name}</span>
             </Link>

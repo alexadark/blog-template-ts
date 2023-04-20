@@ -11,10 +11,19 @@ import type { LoaderArgs } from "@remix-run/node";
 import tailwind from "./styles/tailwind-build.css";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react";
 import { json } from "@remix-run/node";
-import Page from "./components/bloks/Page";
-import Content from "./components/bloks/Content";
-import Post from "./components/bloks/Post";
-import SocialItem from "./components/bloks/SocialItem";
+import {
+  Page,
+  Content,
+  Post,
+  SocialItem,
+  Category,
+  NavItem,
+  FooterColumn,
+  Tag,
+  LastPosts,
+  AllCategories,
+  AllPosts,
+} from "./components/bloks";
 import Layout from "./components/Layout";
 
 const isServer = typeof window === "undefined";
@@ -43,16 +52,16 @@ export const loader = async (args: LoaderArgs) => {
 
 const components = {
   content: Content,
-  // "last-posts": LastPosts,
+  "last-posts": LastPosts,
   page: Page,
   post: Post,
-  // "nav-item": MenuItem,
-  // "all-posts": AllPosts,
-  // "all-categories": AllCategories,
-  // category: Category,
-  // tag: Tag,
+  "nav-item": NavItem,
+  "all-posts": AllPosts,
+  "all-categories": AllCategories,
+  category: Category,
+  tag: Tag,
   "social-item": SocialItem,
-  // "footer-column": FooterColumn,
+  "footer-column": FooterColumn,
 };
 
 storyblokInit({
