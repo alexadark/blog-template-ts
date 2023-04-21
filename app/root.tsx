@@ -7,6 +7,7 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
+import type { V2_MetaFunction } from "@remix-run/node";
 import type { LoaderArgs } from "@remix-run/node";
 import tailwind from "./styles/tailwind-build.css";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react";
@@ -48,6 +49,20 @@ export const loader = async (args: LoaderArgs) => {
     footerText: config?.story?.content?.footer_text,
     footerColumns: config?.story?.content?.footer_columns,
   });
+};
+
+export const meta: V2_MetaFunction = () => {
+  return [
+    { title: "My Super New Blog | Remix" },
+    {
+      property: "og:title",
+      content: "Very cool blog",
+    },
+    {
+      name: "description",
+      content: "This blog is the best",
+    },
+  ];
 };
 
 const components = {

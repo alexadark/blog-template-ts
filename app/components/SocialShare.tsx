@@ -1,6 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
 import SocialItem from "./bloks/SocialItem";
-import type { SocialItemStoryblok } from "../../component-types-sb.d.ts";
+import type { SocialItemStoryblok } from "~/types";
 
 const SocialShare = () => {
   const { socialItems } = useLoaderData();

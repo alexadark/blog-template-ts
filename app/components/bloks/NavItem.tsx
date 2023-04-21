@@ -1,6 +1,6 @@
 import { NavLink } from "@remix-run/react";
 import { storyblokEditable } from "@storyblok/react";
-import type { NavItemStoryblok } from "../../../component-types-sb.d.ts";
+import type { NavItemStoryblok } from "~/types";
 
 const NavItem = ({ blok }: NavItemStoryblok) => {
   const { label, link, _uid } = blok;

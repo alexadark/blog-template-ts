@@ -2,6 +2,8 @@ import { json } from "@remix-run/node";
 import { getStoryblokApi } from "@storyblok/react";
 import { useStoryblokData } from "~/hooks";
 import type { LoaderArgs } from "@remix-run/node";
+import type { V2_MetaFunction } from "@remix-run/node";
+import { getSeo } from "~/utils";
 
 export const loader = async ({ params }: LoaderArgs) => {
   let slug = params["*"] ?? "home";
@@ -33,12 +35,18 @@ export const loader = async ({ params }: LoaderArgs) => {
     is_startpage: 0,
     resolve_relations: resolveRelations,
   });
+  const seo = data?.story?.content?.seo_plugin;
 
   return json({
     story: data?.story,
     posts: blog.stories,
     lastPosts: lastPosts.stories,
+    seo,
   });
+};
+
+export const meta: V2_MetaFunction = ({ data }) => {
+  return getSeo(data.seo);
 };
 
 const RootPage = () => useStoryblokData();

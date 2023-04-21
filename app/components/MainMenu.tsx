@@ -1,6 +1,6 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import { useLoaderData } from "@remix-run/react";
-import type { NavItemStoryblok } from "../../component-types-sb.d.ts";
+import type { NavItemStoryblok } from "~/types";
 
 const MainMenu = () => {
   let { headerNav: nav } = useLoaderData();

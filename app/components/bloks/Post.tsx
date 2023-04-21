@@ -2,11 +2,7 @@ import { storyblokEditable } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 import { useLoaderData, Link, useParams } from "@remix-run/react";
 import { format } from "date-fns";
-import type {
-  PostStoryblok,
-  CategoryStoryblok,
-  TagStoryblok,
-} from "../../../component-types-sb.d.ts";
+import type { PostStoryblok, CategoryStoryblok, TagStoryblok } from "~/types";
 
 const Post = ({ blok }: PostStoryblok) => {
   const { publishDate, id, name } = useLoaderData();

@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run dev:css\" \"remix dev\"",
     "dev:css": "postcss app/styles/tailwind.css -o app/styles/tailwind-build.css -w",
     "typecheck": "tsc",
-    "generate-sb-types": "storyblok-generate-ts source=./components.222491.json target=./component-types-sb"
+    "generate-sb-types": "storyblok-generate-ts source=./components.222491.json target=./app/types/component-types-sb"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",

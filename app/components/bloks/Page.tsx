@@ -1,5 +1,5 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-import type { PageStoryblok } from "../../../component-types-sb.d.ts";
+import type { PageStoryblok } from "~/types";
 
 const Page = ({ blok }: PageStoryblok) => {
   return (

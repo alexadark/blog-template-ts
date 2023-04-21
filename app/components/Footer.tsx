@@ -2,7 +2,7 @@ import { useLoaderData } from "@remix-run/react";
 import { render } from "storyblok-rich-text-react-renderer";
 import SocialShare from "./SocialShare";
 import { StoryblokComponent } from "@storyblok/react";
-import type { FooterColumnStoryblok } from "../../component-types-sb.d.ts";
+import type { FooterColumnStoryblok } from "~/types";
 
 const Footer = () => {
   const { footerText, footerColumns } = useLoaderData();

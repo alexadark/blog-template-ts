@@ -1,8 +1,5 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-import type {
-  FooterColumnStoryblok,
-  NavItemStoryblok,
-} from "../../../component-types-sb.d.ts";
+import type { FooterColumnStoryblok, NavItemStoryblok } from "~/types";
 
 const FooterColumn = ({ blok }: FooterColumnStoryblok) => {
   const { headline, footer_menu } = blok;

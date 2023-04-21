@@ -1,9 +1,6 @@
 import { storyblokEditable } from "@storyblok/react";
 import { useLoaderData, Link } from "@remix-run/react";
-import type {
-  LastPostsStoryblok,
-  PostStoryblok,
-} from "../../../component-types-sb.d.ts";
+import type { LastPostsStoryblok, PostStoryblok } from "~/types";
 
 const LastPosts = ({ blok }: LastPostsStoryblok) => {
   const { _uid, headline } = blok;

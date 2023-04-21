@@ -1,9 +1,6 @@
 import { useLoaderData, Link } from "@remix-run/react";
 import { storyblokEditable } from "@storyblok/react";
-import type {
-  TagStoryblok,
-  PostStoryblok,
-} from "../../../component-types-sb.d.ts";
+import type { TagStoryblok, PostStoryblok } from "~/types";
 
 const Tag = ({ blok }: TagStoryblok) => {
   const { postsByTag } = useLoaderData();
