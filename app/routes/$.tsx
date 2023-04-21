@@ -46,7 +46,7 @@ export const loader = async ({ params }: LoaderArgs) => {
 };
 
 export const meta: V2_MetaFunction = ({ data }) => {
-  return getSeo(data.seo);
+  return getSeo(data.seo, data.story.name);
 };
 
 const RootPage = () => useStoryblokData();

@@ -1,6 +1,8 @@
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import type { LoaderArgs } from "@remix-run/node";
+import type { V2_MetaFunction } from "@remix-run/node";
+import { getSeo } from "~/utils";
 
 import {
   getStoryblokApi,
@@ -34,6 +36,10 @@ export const loader = async ({ params }: LoaderArgs) => {
     story: data?.story,
     postsByTag: postsByTag?.stories,
   });
+};
+
+export const meta: V2_MetaFunction = ({ data }) => {
+  return getSeo(data.seo, data.story.name);
 };
 
 const TagPage = () => {
