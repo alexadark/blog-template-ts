@@ -8,7 +8,7 @@ const Footer = () => {
   const { footerText, footerColumns } = useLoaderData();
 
   return (
-    <footer className="py-10 text-white bg-black">
+    <footer className="py-10">
       <div className="center-container">
         <div className="text-center">{render(footerText)}</div>
         {footerColumns.map((column: FooterColumnStoryblok) => (

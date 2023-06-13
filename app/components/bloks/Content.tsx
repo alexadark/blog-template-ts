@@ -8,7 +8,7 @@ const Content = ({ blok }: ContentStoryblok) => {
     <div
       {...storyblokEditable(blok)}
       key={_uid}
-      className="prose center-container"
+      className="prose center-container text-light"
     >
       {render(text)}
     </div>

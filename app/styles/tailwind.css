@@ -1,3 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap");
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@layer base {
+  html {
+    @apply text-light bg-dark font-body;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-body font-bold;
+  }
+  h1,
+  .prose h1 {
+    @apply md:text-5xl text-4xl mb-5 mt-3;
+  }
+  h2,
+  .prose h2 {
+    @apply md:text-4xl text-3xl mb-4 mt-2;
+  }
+  h3,
+  .prose h3 {
+    @apply md:text-3xl text-2xl  mb-3 mt-1;
+  }
+  a {
+    @apply transition duration-300 ease-in-out;
+  }
+  article,
+  .prose {
+    @apply max-w-[700px];
+  }
+}
+
+@layer utilities {
+  .center-container {
+    @apply container mx-auto px-7 xl:px-0 max-w-[1150px];
+  }
+}

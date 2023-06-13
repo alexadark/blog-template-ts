@@ -6,7 +6,7 @@ const MainMenu = () => {
   let { headerNav: nav } = useLoaderData();
 
   return (
-    <div className="h-menu" {...storyblokEditable(nav)}>
+    <div className="" {...storyblokEditable(nav)}>
       {nav.map((nestedBlok: NavItemStoryblok) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}

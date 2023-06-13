@@ -9,7 +9,7 @@ import {
 } from "@remix-run/react";
 import type { V2_MetaFunction } from "@remix-run/node";
 import type { LoaderArgs } from "@remix-run/node";
-import tailwind from "./styles/tailwind-build.css";
+import tailwind from "./styles/tailwind.css";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react";
 import { json } from "@remix-run/node";
 import {

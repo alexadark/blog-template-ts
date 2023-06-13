@@ -11,7 +11,11 @@ const Post = ({ blok }: PostStoryblok) => {
   const { headline, content, categories, image, tags, author } = blok;
   return (
     <>
-      <article {...storyblokEditable(blok)} key={blok._uid}>
+      <article
+        {...storyblokEditable(blok)}
+        key={blok._uid}
+        className="container mx-auto max-w-[750px]"
+      >
         <div>
           {/* <Date date={publishDate} /> */}
           {format(new Date(publishDate), "MMMM dd, yyyy")}
@@ -23,7 +27,9 @@ const Post = ({ blok }: PostStoryblok) => {
           />
         )}
         <h1>{headline}</h1>
-        {render(content)}
+        <div className="prose text-light max-w-none prose-headings:text-primary prose-img:rounded-xl ">
+          {render(content)}
+        </div>
         <div>
           <h3>Categories</h3>
           {categories?.map((c: CategoryStoryblok) => (
