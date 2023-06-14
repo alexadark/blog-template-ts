@@ -5,11 +5,7 @@ import type { ContentStoryblok } from "~/types";
 const Content = ({ blok }: ContentStoryblok) => {
   const { _uid, text } = blok;
   return (
-    <div
-      {...storyblokEditable(blok)}
-      key={_uid}
-      className="prose center-container text-light"
-    >
+    <div {...storyblokEditable(blok)} key={_uid} className="content">
       {render(text)}
     </div>
   );

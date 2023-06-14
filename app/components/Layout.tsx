@@ -10,9 +10,9 @@ const Layout = ({ children }: Props) => {
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <div>
-        <LeftSidebar />
         <Header />
-        <main>{children}</main>
+        <LeftSidebar />
+        <main className="pt-5 pb-10 center-container">{children}</main>
       </div>
       <Footer />
     </div>

@@ -30,13 +30,26 @@
   a {
     @apply transition duration-300 ease-in-out;
   }
-  article,
-  .prose {
+
+  .content {
+    @apply prose text-light max-w-none prose-headings:text-primary prose-img:rounded-xl;
   }
 }
 
 @layer utilities {
   .center-container {
-    @apply container mx-auto px-7 xl:px-0 xl:max-w-content max-w-[700px];
+    @apply container mx-auto px-5  xl:max-w-content max-w-[850px];
+  }
+}
+
+@layer components {
+  .menu-item {
+    @apply hover:text-primary;
+    &.active {
+      @apply text-primary;
+    }
+  }
+  .button {
+    @apply inline-block px-3 py-1 transition duration-500 rounded-md hover:-translate-y-[2px] bg-light bg-opacity-10 hover:text-secondary;
   }
 }

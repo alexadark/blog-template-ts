@@ -1,15 +1,16 @@
 import { useLoaderData, Link } from "@remix-run/react";
 import { storyblokEditable } from "@storyblok/react";
-import type { CategoryStoryblok, PostStoryblok } from "~/types";
+import type { AuthorStoryblok, PostStoryblok } from "~/types";
 
-const Category = ({ blok }: CategoryStoryblok) => {
-  const { postsByCategory } = useLoaderData();
+const Author = ({ blok }: AuthorStoryblok) => {
+  const { postsByAuthor, story } = useLoaderData();
+  console.log(postsByAuthor, story);
 
   return (
     <div {...storyblokEditable(blok)} key={blok._uid}>
-      <h1>Posts for: {blok.headline}</h1>
-      {blok.description && <p>{blok.description}</p>}
-      {postsByCategory.map((p: PostStoryblok) => {
+      <h1>Posts from: {story.name}</h1>
+      {blok.bio && <p>{blok.bio}</p>}
+      {postsByAuthor?.map((p: PostStoryblok) => {
         return (
           <article key={p._uid}>
             <Link to={`/blog/${p.slug}`}>
@@ -23,4 +24,4 @@ const Category = ({ blok }: CategoryStoryblok) => {
   );
 };
 
-export default Category;
+export default Author;

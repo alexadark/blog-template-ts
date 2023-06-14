@@ -3,11 +3,11 @@ import type { PageStoryblok } from "~/types";
 
 const Page = ({ blok }: PageStoryblok) => {
   return (
-    <main {...storyblokEditable(blok)} key={blok._uid}>
+    <div {...storyblokEditable(blok)} key={blok._uid}>
       {blok.body?.map((nestedBlok: any) => (
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
-    </main>
+    </div>
   );
 };
 

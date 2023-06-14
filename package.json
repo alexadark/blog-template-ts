@@ -14,6 +14,7 @@
     "@remix-run/vercel": "^1.17.0",
     "@storyblok/react": "^2.1.4",
     "@vercel/node": "^2.15.1",
+    "clsx": "^1.2.1",
     "date-fns": "^2.30.0",
     "isbot": "^3.6.10",
     "postcss-import": "^15.1.0",

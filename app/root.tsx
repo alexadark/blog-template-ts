@@ -24,6 +24,7 @@ import {
   LastPosts,
   AllCategories,
   AllPosts,
+  Author,
 } from "./components/bloks";
 import Layout from "./components/Layout";
 
@@ -77,6 +78,7 @@ const components = {
   tag: Tag,
   "social-item": SocialItem,
   "footer-column": FooterColumn,
+  author: Author,
 };
 
 storyblokInit({
