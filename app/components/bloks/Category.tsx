@@ -1,23 +1,19 @@
-import { useLoaderData, Link } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { storyblokEditable } from "@storyblok/react";
 import type { CategoryStoryblok, PostStoryblok } from "~/types";
+import PostCard from "./PostCard";
 
 const Category = ({ blok }: CategoryStoryblok) => {
   const { postsByCategory } = useLoaderData();
 
   return (
     <div {...storyblokEditable(blok)} key={blok._uid}>
-      <h1>Posts for: {blok.headline}</h1>
-      {blok.description && <p>{blok.description}</p>}
+      <div className="mb-10">
+        <h1>Posts for:{blok.headline}</h1>
+        {blok.description && <p>{blok.description}</p>}
+      </div>
       {postsByCategory.map((p: PostStoryblok) => {
-        return (
-          <article key={p._uid}>
-            <Link to={`/blog/${p.slug}`}>
-              <h2>{p.content.headline}</h2>
-            </Link>
-            <div>{p.content.teaser}</div>
-          </article>
-        );
+        return <PostCard post={p} key={p.content._uid} />;
       })}
     </div>
   );

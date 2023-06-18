@@ -48,7 +48,6 @@ const TagPage = () => {
 
   return (
     <div>
-      <h1>Test</h1>
       <StoryblokComponent blok={story.content} />
     </div>
   );

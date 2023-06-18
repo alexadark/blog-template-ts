@@ -6,10 +6,7 @@ const MainMenu = () => {
   let { headerNav: nav } = useLoaderData();
 
   return (
-    <nav
-      className="flex flex-col space-y-3 text-xl "
-      {...storyblokEditable(nav)}
-    >
+    <nav className="flex flex-col space-y-3" {...storyblokEditable(nav)}>
       <NavLink to="/" className="menu-item">
         Home
       </NavLink>

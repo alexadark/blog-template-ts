@@ -3,7 +3,7 @@ import SlideSidebar from "./SlideSidebar";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 z-40 flex-none w-full py-3 border-b backdrop-blur border-light border-opacity-10 bg-dark lg:bg-transparent">
+    <header className="sticky top-0 z-40 flex-none w-full py-3 border-b backdrop-blur border-light border-opacity-10 bg-dark-100 lg:bg-transparent">
       <div className="container flex justify-between mx-auto align-center px-7 xl:px-0">
         <Link to="/">
           <h1 className="my-0 text-3xl font-bold">Alexandra Spalato</h1>

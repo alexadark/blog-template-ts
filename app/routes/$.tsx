@@ -14,7 +14,6 @@ export const loader = async ({ params }: LoaderArgs) => {
 
   const { data } = await sbApi.get(`cdn/stories/${slug}`, {
     version: "draft",
-    resolve_relations: resolveRelations,
   });
 
   const numberOfPosts = data.story.content.body?.find(
@@ -26,6 +25,7 @@ export const loader = async ({ params }: LoaderArgs) => {
     starts_with: "blog/",
     per_page: 20,
     is_startpage: 0,
+    resolve_relations: resolveRelations,
   });
 
   const { data: lastPosts } = await sbApi.get(`cdn/stories`, {

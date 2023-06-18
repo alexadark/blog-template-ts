@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const light = "#E5E7EB";
+const light = "#e5e7eb";
 const primary = "#f056c7";
 const secondary = "#58e6d9";
 const links = "#8b87ea";
@@ -22,7 +22,12 @@ module.exports = {
         content: "850px"
       },
       colors: {
-        dark,
+        dark:{
+          25:"#262539",
+          50: "#18162c",
+          100: dark,
+
+        },
         light,
         primary,
         secondary,

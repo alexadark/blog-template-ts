@@ -25,6 +25,7 @@ export const loader = async ({ params }: LoaderArgs) => {
     starts_with: "blog/",
     per_page: 20,
     is_startpage: 0,
+    resolve_relations: resolveRelations,
   });
 
   let response = await fetch(

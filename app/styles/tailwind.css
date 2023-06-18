@@ -5,7 +5,7 @@
 
 @layer base {
   html {
-    @apply text-light bg-dark font-body;
+    @apply text-light bg-dark-100 font-body;
   }
   h1,
   h2,
@@ -32,7 +32,7 @@
   }
 
   .content {
-    @apply prose text-light max-w-none prose-headings:text-primary prose-img:rounded-xl;
+    @apply prose text-light max-w-none prose-headings:text-primary prose-img:rounded-xl text-opacity-80;
   }
 }
 
@@ -50,6 +50,6 @@
     }
   }
   .button {
-    @apply inline-block px-3 py-1 transition duration-500 rounded-md hover:-translate-y-[2px] bg-light bg-opacity-10 hover:text-secondary;
+    @apply inline-block px-3 py-1 transition duration-500 rounded-md hover:-translate-y-[2px] bg-dark-25 hover:text-secondary shadow-sm hover:shadow-secondary;
   }
 }

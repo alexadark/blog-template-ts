@@ -1,23 +1,23 @@
 import { storyblokEditable } from "@storyblok/react";
-import { useLoaderData, Link } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import type { AllPostsStoryblok, PostStoryblok } from "~/types";
+import { render } from "storyblok-rich-text-react-renderer";
+import PostCard from "./PostCard";
 
 const AllPosts = ({ blok }: AllPostsStoryblok) => {
   const { posts } = useLoaderData();
+  console.log(posts);
 
   return (
     <div {...storyblokEditable(blok)} key={blok._uid}>
-      <h1>{blok.headline}</h1>
+      <div className="mb-10">
+        <h1>{blok.headline}</h1>
+        <p>{render(blok.intro)}</p>
+      </div>
+
       {posts?.map((p: PostStoryblok) => {
         const post = p.content;
-        return (
-          <article key={post._uid}>
-            <Link to={`/${p.full_slug}`}>
-              <h2>{post.headline}</h2>
-            </Link>
-            <p>{post.teaser}</p>
-          </article>
-        );
+        return <PostCard post={p} key={post._uid} />;
       })}
     </div>
   );
