@@ -9,9 +9,10 @@ import {
 } from "@remix-run/react";
 import type { V2_MetaFunction } from "@remix-run/node";
 import type { LoaderArgs } from "@remix-run/node";
+import type { ActionArgs } from "@remix-run/node";
 import tailwind from "./styles/tailwind.css";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react";
-import { json } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import {
   Page,
   Content,
@@ -34,6 +35,11 @@ const accessToken = isServer
   ? process.env.STORYBLOK_PREVIEW_TOKEN
   : //@ts-ignore
     window.env.STORYBLOK_PREVIEW_TOKEN;
+
+export const action = async ({ request }: ActionArgs) => {
+  const body = await request.formData();
+  return redirect(`/search-results?query=${body.get("query")}`);
+};
 
 export const loader = async (args: LoaderArgs) => {
   const sbApi = getStoryblokApi();
