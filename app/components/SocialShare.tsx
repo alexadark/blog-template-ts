@@ -5,7 +5,7 @@ import type { SocialItemStoryblok } from "~/types";
 const SocialShare = () => {
   const { socialItems } = useLoaderData();
   return (
-    <div className="flex justify-center gap-3">
+    <div>
       {socialItems.map((item: SocialItemStoryblok) => (
         <SocialItem key={item._uid} blok={item} />
       ))}

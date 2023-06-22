@@ -2,7 +2,7 @@ import { storyblokEditable } from "@storyblok/react";
 import type { SocialItemStoryblok } from "~/types";
 
 const SocialItem = ({ blok }: SocialItemStoryblok) => {
-  const { icon, url } = blok;
+  const { icon, url, name } = blok;
   return (
     <a
       href={url.cached_url}
@@ -10,8 +10,12 @@ const SocialItem = ({ blok }: SocialItemStoryblok) => {
       rel="noopener noreferrer"
       {...storyblokEditable(blok)}
       key={blok._uid}
+      className="flex items-center gap-2 mb-5 opacity-50 hover:opacity-100 transition-opacity duration-300"
     >
-      <img src={`${icon.filename}/m/30x30`} alt={icon.alt} />
+      <div>
+        <img src={`${icon.filename}/m/24x24`} alt={icon.alt} />
+      </div>
+      <div>{name}</div>
     </a>
   );
 };

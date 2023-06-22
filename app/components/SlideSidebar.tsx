@@ -2,9 +2,9 @@ import { useState, Fragment, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { MdClose as Close } from "react-icons/md";
 import { HiOutlineMenuAlt2 as Hamburger } from "react-icons/hi";
-import MainMenu from "./MainMenu";
 import clsx from "clsx";
 import { useNavigation } from "@remix-run/react";
+import SidebarContent from "./SidebarContent";
 
 const SlideSidebar = ({ ...props }) => {
   const transition = useNavigation();
@@ -90,7 +90,7 @@ const SlideSidebar = ({ ...props }) => {
                         />
                       </button>
                     </div>
-                    <MainMenu />
+                    <SidebarContent />
                   </div>
                   {/* End of panel content */}
                 </div>
