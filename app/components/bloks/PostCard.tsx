@@ -3,11 +3,15 @@ import type { PostStoryblok } from "~/types";
 import Categories from "../Categories";
 import { format } from "date-fns";
 
-const PostCard = ({ post }: PostStoryblok) => {
+const PostCard = ({ post, grid }: PostStoryblok) => {
   const { headline, teaser, categories, image } = post.content;
 
   return (
-    <article className="mb-7 bg-dark-50 border border-dark-25  px-5 py-7 rounded-lg shadow-sm translate duration-500 hover:-translate-y-1 hover:shadow-primary relative">
+    <article
+      className={`${
+        !grid && "mb-7"
+      } bg-dark-50 border border-dark-25  px-5 py-7 rounded-lg shadow-sm translate duration-500 hover:-translate-y-1 hover:shadow-primary relative`}
+    >
       <Link to={`/${post.full_slug}`}>
         <div className="flex flex-wrap justify-between items-center gap-3 mb-4">
           <div className="mr-5 text-lg font-bold text-primary">
@@ -17,7 +21,7 @@ const PostCard = ({ post }: PostStoryblok) => {
             <Categories categories={categories} />
           </div>
         </div>
-        <div className="md:flex justify-between gap-5">
+        <div className={`${!grid && "md:flex justify-between gap-5"}`}>
           {image && (
             <div className="flex items-center">
               <picture>
