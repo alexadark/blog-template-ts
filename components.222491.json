@@ -27,11 +27,17 @@
       "name": "all-posts",
       "display_name": null,
       "created_at": "2023-04-16T08:48:56.225Z",
-      "updated_at": "2023-04-16T08:48:56.225Z",
+      "updated_at": "2023-06-23T07:41:42.222Z",
       "id": 3822229,
       "schema": {
         "headline": {
           "type": "text"
+        },
+        "intro": {
+          "type": "richtext"
+        },
+        "grid": {
+          "type": "boolean"
         }
       },
       "image": null,
@@ -50,7 +56,7 @@
       "name": "author",
       "display_name": null,
       "created_at": "2023-04-16T08:48:56.301Z",
-      "updated_at": "2023-04-16T08:48:56.301Z",
+      "updated_at": "2023-04-21T13:56:20.455Z",
       "id": 3822233,
       "schema": {
         "avatar": {
@@ -61,6 +67,19 @@
         },
         "bio": {
           "type": "textarea"
+        },
+        "tab-5f9e8135-80bd-4415-b7b9-981b3acab455": {
+          "display_name": "Seo",
+          "keys": [
+            "seo_plugin"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "seo_plugin": {
+          "type": "custom",
+          "field_type": "seo-metatags",
+          "options": []
         }
       },
       "image": null,
@@ -79,13 +98,21 @@
       "name": "category",
       "display_name": null,
       "created_at": "2023-04-16T08:48:56.282Z",
-      "updated_at": "2023-04-16T08:48:56.282Z",
+      "updated_at": "2023-06-26T11:11:04.189Z",
       "id": 3822232,
       "schema": {
         "headline": {
           "type": "text",
           "pos": 0,
           "translatable": true
+        },
+        "tab-b6c77404-36ca-4542-b1f8-a8f0ff13b877": {
+          "display_name": "Seo",
+          "keys": [
+            "seo_plugin"
+          ],
+          "pos": 0,
+          "type": "tab"
         },
         "image": {
           "type": "asset",
@@ -98,6 +125,14 @@
           "type": "textarea",
           "pos": 2,
           "translatable": true
+        },
+        "seo_plugin": {
+          "type": "custom",
+          "field_type": "seo-metatags",
+          "options": []
+        },
+        "grid": {
+          "type": "boolean"
         }
       },
       "image": null,
@@ -145,7 +180,7 @@
       "name": "config",
       "display_name": null,
       "created_at": "2023-04-16T08:48:56.170Z",
-      "updated_at": "2023-04-16T08:48:56.170Z",
+      "updated_at": "2023-06-18T08:27:25.883Z",
       "id": 3822226,
       "schema": {
         "tab-acc2463a-e449-426d-a69d-2f61306438a7": {
@@ -186,8 +221,7 @@
         "tab-ff1fc390-8dde-4e94-b7d0-578afe30818a": {
           "display_name": "Footer",
           "keys": [
-            "footer_text",
-            "footer_columns"
+            "footer_text"
           ],
           "pos": 0,
           "type": "tab"
@@ -202,14 +236,6 @@
             "underline"
           ],
           "translatable": true
-        },
-        "footer_columns": {
-          "type": "bloks",
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "footer-column"
-          ]
         }
       },
       "image": null,
@@ -288,7 +314,7 @@
       "name": "last-posts",
       "display_name": null,
       "created_at": "2023-04-16T08:48:56.079Z",
-      "updated_at": "2023-04-16T08:48:56.079Z",
+      "updated_at": "2023-06-23T07:57:48.556Z",
       "id": 3822221,
       "schema": {
         "headline": {
@@ -298,7 +324,11 @@
         "number_of_posts": {
           "type": "number",
           "default_value": "3",
-          "description": "The number of posts to show"
+          "description": "The number of posts to show",
+          "display_name": ""
+        },
+        "grid": {
+          "type": "boolean"
         }
       },
       "image": null,
@@ -408,7 +438,7 @@
       "name": "post",
       "display_name": "Post",
       "created_at": "2023-04-16T08:48:56.013Z",
-      "updated_at": "2023-04-16T08:48:56.013Z",
+      "updated_at": "2023-04-21T12:59:00.191Z",
       "id": 3822218,
       "schema": {
         "headline": {
@@ -418,7 +448,8 @@
         "tab-1c2b7139-9854-4fff-b982-8b033e422751": {
           "display_name": "seo",
           "keys": [
-            "seo"
+            "seo",
+            "seo_plugin"
           ],
           "pos": 0,
           "type": "tab"
@@ -480,6 +511,11 @@
             "comment"
           ],
           "folder_slug": "comments/"
+        },
+        "seo_plugin": {
+          "type": "custom",
+          "field_type": "seo-metatags",
+          "options": []
         }
       },
       "image": null,
@@ -610,7 +646,7 @@
       "name": "tag",
       "display_name": null,
       "created_at": "2023-04-16T08:48:56.037Z",
-      "updated_at": "2023-04-16T08:48:56.037Z",
+      "updated_at": "2023-06-26T11:11:25.202Z",
       "id": 3822219,
       "schema": {
         "headline": {
@@ -620,6 +656,22 @@
         "description": {
           "type": "textarea",
           "translatable": true
+        },
+        "tab-42670311-31db-4dc4-bcd2-8e112ad403ca": {
+          "display_name": "Seo",
+          "keys": [
+            "seo_plugin"
+          ],
+          "pos": 0,
+          "type": "tab"
+        },
+        "seo_plugin": {
+          "type": "custom",
+          "field_type": "seo-metatags",
+          "options": []
+        },
+        "grid": {
+          "type": "boolean"
         }
       },
       "image": null,

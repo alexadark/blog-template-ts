@@ -2,7 +2,7 @@ import { useLoaderData, Link } from "@remix-run/react";
 import { getStoryblokApi } from "@storyblok/react";
 import type { LoaderArgs } from "@remix-run/node";
 import type { StoryblokStory } from "storyblok-generate-ts";
-import PostCard from "~/components/bloks/PostCard";
+import PostCard from "~/components/PostCard";
 
 export const loader = async ({ request }: LoaderArgs) => {
   const url = new URL(request.url);

@@ -1,7 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
 import { storyblokEditable } from "@storyblok/react";
 import type { CategoryStoryblok, PostStoryblok } from "~/types";
-import PostCard from "./PostCard";
+import PostCard from "../PostCard";
 
 const Category = ({ blok }: CategoryStoryblok) => {
   const { postsByCategory } = useLoaderData();
@@ -13,7 +13,7 @@ const Category = ({ blok }: CategoryStoryblok) => {
         {blok.description && <p>{blok.description}</p>}
       </div>
       {postsByCategory.map((p: PostStoryblok) => {
-        return <PostCard post={p} key={p.content._uid} />;
+        return <PostCard post={p} key={p.content?._uid} grid={blok.grid} />;
       })}
     </div>
   );

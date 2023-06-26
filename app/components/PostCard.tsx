@@ -1,6 +1,6 @@
 import { Link } from "@remix-run/react";
 import type { PostStoryblok } from "~/types";
-import Categories from "../Categories";
+import Categories from "./Categories";
 import { format } from "date-fns";
 
 const PostCard = ({ post, grid }: PostStoryblok) => {

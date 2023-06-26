@@ -1,4 +1,4 @@
-import { StoryblokStory } from "storyblok-generate-ts";
+import {StoryblokStory} from 'storyblok-generate-ts'
 
 export interface AllCategoriesStoryblok {
   headline?: string;
@@ -7,8 +7,19 @@ export interface AllCategoriesStoryblok {
   [k: string]: any;
 }
 
+export interface RichtextStoryblok {
+  type: string;
+  content?: RichtextStoryblok[];
+  marks?: RichtextStoryblok[];
+  attrs?: any;
+  text?: string;
+  [k: string]: any;
+}
+
 export interface AllPostsStoryblok {
   headline?: string;
+  intro?: RichtextStoryblok;
+  grid?: boolean;
   _uid: string;
   component: "all-posts";
   [k: string]: any;
@@ -28,6 +39,19 @@ export interface AssetStoryblok {
 export interface AuthorStoryblok {
   avatar?: AssetStoryblok;
   bio?: string;
+  seo_plugin?: {
+    _uid?: string;
+    title?: string;
+    plugin?: string;
+    og_image?: string;
+    og_title?: string;
+    description?: string;
+    twitter_image?: string;
+    twitter_title?: string;
+    og_description?: string;
+    twitter_description?: string;
+    [k: string]: any;
+  };
   _uid: string;
   component: "author";
   [k: string]: any;
@@ -37,6 +61,20 @@ export interface CategoryStoryblok {
   headline?: string;
   image?: AssetStoryblok;
   description?: string;
+  seo_plugin?: {
+    _uid?: string;
+    title?: string;
+    plugin?: string;
+    og_image?: string;
+    og_title?: string;
+    description?: string;
+    twitter_image?: string;
+    twitter_title?: string;
+    og_description?: string;
+    twitter_description?: string;
+    [k: string]: any;
+  };
+  grid?: boolean;
   _uid: string;
   component: "category";
   [k: string]: any;
@@ -54,8 +92,7 @@ export interface CommentStoryblok {
 export interface ConfigStoryblok {
   header_nav?: NavItemStoryblok[];
   social_items?: SocialItemStoryblok[];
-  footer_text?: any;
-  footer_columns?: FooterColumnStoryblok[];
+  footer_text?: RichtextStoryblok;
   _uid: string;
   component: "config";
   [k: string]: any;
@@ -117,16 +154,25 @@ export type MultilinkStoryblok =
     };
 
 export interface ContentStoryblok {
-  text?: any;
+  text?: RichtextStoryblok;
   button?: MultilinkStoryblok;
   _uid: string;
   component: "content";
   [k: string]: any;
 }
 
+export interface FooterColumnStoryblok {
+  headline?: string;
+  footer_menu?: NavItemStoryblok[];
+  _uid: string;
+  component: "footer-column";
+  [k: string]: any;
+}
+
 export interface LastPostsStoryblok {
   headline?: string;
-  number_of_posts?: number;
+  number_of_posts?: string;
+  grid?: boolean;
   _uid: string;
   component: "last-posts";
   [k: string]: any;
@@ -167,12 +213,25 @@ export interface PostStoryblok {
   headline?: string;
   image?: AssetStoryblok;
   teaser?: string;
-  content?: any;
+  content?: RichtextStoryblok;
   author?: StoryblokStory<AuthorStoryblok> | string;
   categories?: (StoryblokStory<CategoryStoryblok> | string)[];
   tags?: (StoryblokStory<TagStoryblok> | string)[];
   seo?: SeoStoryblok[];
   comments?: (StoryblokStory<CommentStoryblok> | string)[];
+  seo_plugin?: {
+    _uid?: string;
+    title?: string;
+    plugin?: string;
+    og_image?: string;
+    og_title?: string;
+    description?: string;
+    twitter_image?: string;
+    twitter_title?: string;
+    og_description?: string;
+    twitter_description?: string;
+    [k: string]: any;
+  };
   _uid: string;
   component: "post";
   [k: string]: any;
@@ -210,6 +269,20 @@ export interface SocialItemStoryblok {
 export interface TagStoryblok {
   headline?: string;
   description?: string;
+  seo_plugin?: {
+    _uid?: string;
+    title?: string;
+    plugin?: string;
+    og_image?: string;
+    og_title?: string;
+    description?: string;
+    twitter_image?: string;
+    twitter_title?: string;
+    og_description?: string;
+    twitter_description?: string;
+    [k: string]: any;
+  };
+  grid?: boolean;
   _uid: string;
   component: "tag";
   [k: string]: any;

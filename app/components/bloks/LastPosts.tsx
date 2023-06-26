@@ -1,7 +1,7 @@
 import { storyblokEditable } from "@storyblok/react";
 import { useLoaderData, Link } from "@remix-run/react";
 import type { LastPostsStoryblok, PostStoryblok } from "~/types";
-import PostCard from "./PostCard";
+import PostCard from "../PostCard";
 
 const LastPosts = ({ blok }: LastPostsStoryblok) => {
   const { _uid, headline, grid } = blok;
