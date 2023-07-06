@@ -18,6 +18,7 @@ const NavItem = ({ blok }: NavItemStoryblok) => {
         </NavLink>
       ) : (
         <a
+          key={_uid}
           href={link.url}
           target={link.target}
           {...storyblokEditable(blok)}

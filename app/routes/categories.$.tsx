@@ -22,10 +22,17 @@ export const loader = async ({ params }: LoaderArgs) => {
 
   const seo = data?.story?.content?.seo_plugin;
 
+  let page = Number.isNaN(Number(params.pageNumber))
+    ? 1
+    : Number(params.pageNumber);
+  let perPage = 4;
+
   const { data: postsByCategory } = await sbApi.get(`cdn/stories/`, {
     version: "draft",
     starts_with: "blog/",
     is_startpage: 0,
+    per_page: perPage,
+    page,
     resolve_relations: resolveRelations,
     filter_query: {
       categories: {
@@ -34,10 +41,16 @@ export const loader = async ({ params }: LoaderArgs) => {
     },
   });
 
+  let response = await fetch(
+    `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=blog/&version=draft/&per_page=20&is_startpage=false`
+  );
+  let total = await response?.headers.get("total");
+
   return json({
     story: data?.story,
-    postsByCategory: postsByCategory?.stories,
+    posts: postsByCategory?.stories,
     categories: categories?.stories,
+    total,
     seo,
   });
 };
