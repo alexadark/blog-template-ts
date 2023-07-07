@@ -5,7 +5,7 @@ import type { PostStoryblok } from "~/types";
 
 import PostCard from "./PostCard";
 
-const PostsList = ({ grid, filterQuery = {} }) => {
+const PostsList = ({ grid = Boolean, filterQuery = {} }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const { posts: firstsPosts, total, perPage } = useLoaderData();
   const [posts, setPosts] = useState(firstsPosts);
@@ -47,7 +47,7 @@ const PostsList = ({ grid, filterQuery = {} }) => {
         })}
       </div>
       {posts.length < total && (
-        <div className={`flex items-center ${grid && "mt-5"}`}>
+        <div className={`flex items-center ${grid ? "mt-5" : ""}`}>
           <button className="button mx-auto py-4 px-7" onClick={loadMore}>
             Load More
           </button>
