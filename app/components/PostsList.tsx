@@ -5,7 +5,11 @@ import type { PostStoryblok } from "~/types";
 
 import PostCard from "./PostCard";
 
-const PostsList = ({ grid = Boolean, filterQuery = {} }) => {
+interface PostsList {
+  grid?: boolean;
+  filterQuery?: Object;
+}
+const PostsList = ({ grid, filterQuery = {} }: PostsList) => {
   const [currentPage, setCurrentPage] = useState(1);
   const { posts: firstsPosts, total, perPage } = useLoaderData();
   const [posts, setPosts] = useState(firstsPosts);
@@ -43,7 +47,7 @@ const PostsList = ({ grid = Boolean, filterQuery = {} }) => {
       <div className={grid && "grid grid-cols-2 gap-5"}>
         {posts?.map((p: PostStoryblok) => {
           const post = p.content;
-          return <PostCard post={p} key={post._uid} grid={grid} />;
+          return <PostCard post={p} key={post?._uid} grid={grid} />;
         })}
       </div>
       {posts.length < total && (
