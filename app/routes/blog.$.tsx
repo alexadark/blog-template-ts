@@ -47,6 +47,7 @@ export const loader = async ({ params }: LoaderArgs) => {
     name: data?.story?.name,
     posts: blog.stories,
     total,
+    perPage,
     seo,
   });
 };

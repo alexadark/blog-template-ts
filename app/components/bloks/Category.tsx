@@ -1,11 +1,15 @@
 import { useLoaderData } from "@remix-run/react";
 import { storyblokEditable } from "@storyblok/react";
-import type { CategoryStoryblok, PostStoryblok } from "~/types";
-import PostCard from "../PostCard";
+import type { CategoryStoryblok } from "~/types";
 import PostsList from "../PostsList";
 
 const Category = ({ blok }: CategoryStoryblok) => {
-  // const { postsByCategory } = useLoaderData();
+  const { story } = useLoaderData();
+  const filterQuery = {
+    categories: {
+      in_array: story.uuid,
+    },
+  };
 
   return (
     <div {...storyblokEditable(blok)} key={blok._uid}>
@@ -13,10 +17,8 @@ const Category = ({ blok }: CategoryStoryblok) => {
         <h1>Posts for:{blok.headline}</h1>
         {blok.description && <p>{blok.description}</p>}
       </div>
-      {/* {postsByCategory.map((p: PostStoryblok) => {
-        return <PostCard post={p} key={p.content?._uid} grid={blok.grid} />;
-      })} */}
-      <PostsList grid={blok.grid} />
+
+      <PostsList grid={blok.grid} filterQuery={filterQuery} />
     </div>
   );
 };

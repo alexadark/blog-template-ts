@@ -5,10 +5,11 @@ import type { PostStoryblok } from "~/types";
 
 import PostCard from "./PostCard";
 
-const PostsList = ({ grid }) => {
+const PostsList = ({ grid, filterQuery = {} }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const { posts: firstsPosts, total } = useLoaderData();
+  const { posts: firstsPosts, total, perPage } = useLoaderData();
   const [posts, setPosts] = useState(firstsPosts);
+  console.log("total", total);
 
   const sbApi = getStoryblokApi();
   const resolveRelations = [
@@ -18,14 +19,15 @@ const PostsList = ({ grid }) => {
     "post.comments",
   ];
 
-  const fetchPosts = async (page: number) => {
+  const fetchPosts = async (page: number, filterQuery: Object) => {
     const { data: blog } = await sbApi.get(`cdn/stories`, {
       version: "draft",
       starts_with: "blog/",
-      per_page: 4,
+      per_page: perPage,
       page,
       is_startpage: 0,
       resolve_relations: resolveRelations,
+      filter_query: filterQuery,
     });
 
     setPosts((prevPosts) => [...prevPosts, ...blog.stories]);
@@ -34,7 +36,7 @@ const PostsList = ({ grid }) => {
   const loadMore = () => {
     let nextPage = currentPage + 1;
     setCurrentPage(nextPage);
-    fetchPosts(nextPage);
+    fetchPosts(nextPage, filterQuery);
   };
   return (
     <div>
@@ -45,7 +47,7 @@ const PostsList = ({ grid }) => {
         })}
       </div>
       {posts.length < total && (
-        <div className="flex items-center">
+        <div className={`flex items-center ${grid && "mt-5"}`}>
           <button className="button mx-auto py-4 px-7" onClick={loadMore}>
             Load More
           </button>
