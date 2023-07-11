@@ -48,7 +48,7 @@ export const loader = async ({ params }: LoaderArgs) => {
   });
 
   let response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=blog/&version=draft/is_startpage=false/&filter_query[categories][in_array]=${data.story.uuid}`
+    `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=blog/&version=draft/is_startpage=false&filter_query[categories][in_array]=${data.story.uuid}`
   );
   let total = await response?.headers.get("total");
 

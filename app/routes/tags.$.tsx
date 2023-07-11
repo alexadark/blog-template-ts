@@ -1,15 +1,10 @@
 import { json } from "@remix-run/node";
 import { useStoryblokData } from "~/hooks";
-import { useLoaderData } from "@remix-run/react";
 import type { LoaderArgs } from "@remix-run/node";
 import type { V2_MetaFunction } from "@remix-run/node";
 import { getSeo } from "~/utils";
 
-import {
-  getStoryblokApi,
-  useStoryblokState,
-  StoryblokComponent,
-} from "@storyblok/react";
+import { getStoryblokApi } from "@storyblok/react";
 
 export const loader = async ({ params }: LoaderArgs) => {
   let slug = params["*"] ?? "home";
@@ -47,7 +42,7 @@ export const loader = async ({ params }: LoaderArgs) => {
   });
 
   let response = await fetch(
-    `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=blog/&version=draft/is_startpage=false/&filter_query[tags][in_array]=${data.story.uuid}`
+    `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=blog/&version=draft/is_startpage=false&filter_query[tags][in_array]=${data.story.uuid}`
   );
   let total = await response?.headers.get("total");
 
