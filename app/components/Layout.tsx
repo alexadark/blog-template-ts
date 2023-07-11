@@ -11,8 +11,12 @@ const Layout = ({ children }: Props) => {
     <div className="flex flex-col justify-between min-h-screen">
       <div>
         <Header />
-        <LeftSidebar />
-        <main className="pt-5 pb-10 center-container">{children}</main>
+        <div className="max-w-site mx-auto">
+          <LeftSidebar />
+          <main className="pt-5 pb-10 mx-auto max-w-content px-5">
+            {children}
+          </main>
+        </div>
       </div>
       <Footer />
     </div>

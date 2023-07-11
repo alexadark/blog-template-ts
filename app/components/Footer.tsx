@@ -5,7 +5,7 @@ const Footer = () => {
   const { footerText } = useLoaderData();
   return (
     <footer className="py-10 ">
-      <div className="center-container">
+      <div className="max-w-content mx-auto px-5">
         <div>
           {render(footerText)} &copy; {new Date().getFullYear()}
         </div>

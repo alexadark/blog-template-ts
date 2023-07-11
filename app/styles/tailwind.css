@@ -38,7 +38,7 @@
 
 @layer utilities {
   .center-container {
-    @apply container mx-auto px-5  xl:max-w-content max-w-[850px];
+    @apply container mx-auto px-5;
   }
 }
 

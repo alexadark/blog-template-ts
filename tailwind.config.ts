@@ -19,7 +19,8 @@ module.exports = {
         bold: "700",
       },
       maxWidth:{
-        content: "850px"
+        content: "850px",
+        site: "1440px"
       },
       colors: {
         dark:{
