@@ -1,4 +1,5 @@
 import { json } from "@remix-run/node";
+import { useStoryblokData } from "~/hooks";
 import { useLoaderData } from "@remix-run/react";
 import type { LoaderArgs } from "@remix-run/node";
 import type { V2_MetaFunction } from "@remix-run/node";
@@ -62,15 +63,6 @@ export const meta: V2_MetaFunction = ({ data }) => {
   return getSeo(data.seo, data.story.name);
 };
 
-const TagPage = () => {
-  let { story } = useLoaderData();
-  story = useStoryblokState(story);
-
-  return (
-    <div>
-      <StoryblokComponent blok={story.content} />
-    </div>
-  );
-};
+const TagPage = () => useStoryblokData();
 
 export default TagPage;

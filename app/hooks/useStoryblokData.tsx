@@ -12,5 +12,5 @@ export const useStoryblokData = () => {
       "post.comments",
     ],
   });
-  return <StoryblokComponent blok={story.content} />;
+  return <StoryblokComponent blok={story?.content} />;
 };
