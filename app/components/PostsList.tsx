@@ -5,11 +5,11 @@ import type { PostStoryblok } from "~/types";
 
 import PostCard from "./PostCard";
 
-interface PostsList {
+interface PostsListType {
   grid?: boolean;
   filterQuery?: Object;
 }
-const PostsList = ({ grid, filterQuery = {} }: PostsList) => {
+const PostsList = ({ grid, filterQuery = {} }: PostsListType) => {
   const [currentPage, setCurrentPage] = useState(1);
   const { posts: firstsPosts, total, perPage } = useLoaderData();
   const [posts, setPosts] = useState(firstsPosts);

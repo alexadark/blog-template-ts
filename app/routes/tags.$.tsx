@@ -20,10 +20,23 @@ export const loader = async ({ params }: LoaderArgs) => {
     version: "draft",
   });
 
+  let page = Number.isNaN(Number(params.pageNumber))
+    ? 1
+    : Number(params.pageNumber);
+
+  const { data: config } = await sbApi.get(`cdn/stories/config`, {
+    version: "draft",
+    resolve_links: "url",
+  });
+
+  let perPage = config?.story?.content?.posts_per_page;
+
   const { data: postsByTag } = await sbApi.get(`cdn/stories/`, {
     version: "draft",
     starts_with: "blog/",
     is_startpage: 0,
+    per_page: perPage,
+    page,
     resolve_relations: resolveRelations,
     filter_query: {
       tags: {
@@ -32,9 +45,16 @@ export const loader = async ({ params }: LoaderArgs) => {
     },
   });
 
+  let response = await fetch(
+    `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=blog/&version=draft/is_startpage=false/&filter_query[tags][in_array]=${data.story.uuid}`
+  );
+  let total = await response?.headers.get("total");
+
   return json({
     story: data?.story,
-    postsByTag: postsByTag?.stories,
+    posts: postsByTag?.stories,
+    perPage,
+    total,
   });
 };
 

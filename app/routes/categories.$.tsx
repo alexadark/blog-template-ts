@@ -25,7 +25,13 @@ export const loader = async ({ params }: LoaderArgs) => {
   let page = Number.isNaN(Number(params.pageNumber))
     ? 1
     : Number(params.pageNumber);
-  let perPage = 4;
+
+  const { data: config } = await sbApi.get(`cdn/stories/config`, {
+    version: "draft",
+    resolve_links: "url",
+  });
+
+  let perPage = config?.story?.content?.posts_per_page;
 
   const { data: postsByCategory } = await sbApi.get(`cdn/stories/`, {
     version: "draft",
