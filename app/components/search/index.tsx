@@ -65,22 +65,21 @@ const Search = () => {
               >
                 <div
                   className={clsx(
-                    "relative",
                     "w-screen max-w-full",
                     "bg-dark-50",
                     "px-10 py-5"
                   )}
                 >
-                  <button
-                    className={clsx("absolute right-3 top-3")}
-                    aria-label="close menu"
-                  >
-                    <Close
-                      className={`text-[24px] text-white `}
-                      onClick={() => setOpen(false)}
-                    />
-                  </button>
-                  <div>
+                  <div className="max-w-site mx-auto relative">
+                    <button
+                      className={clsx("absolute right-3 top")}
+                      aria-label="close menu"
+                    >
+                      <Close
+                        className={`text-[24px] text-white `}
+                        onClick={() => setOpen(false)}
+                      />
+                    </button>
                     <SearchForm
                       setOpen={setOpen}
                       openOverlay={openOverlay}
