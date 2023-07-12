@@ -10,3 +10,4 @@ export { default as LastPosts } from "./LastPosts";
 export { default as AllCategories } from "./AllCategories";
 export { default as AllPosts } from "./AllPosts";
 export { default as Author } from "./Author";
+export { default as CodeBlock } from "./CodeBlock";

@@ -1,4 +1,4 @@
-import { storyblokEditable } from "@storyblok/react";
+import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import { render } from "storyblok-rich-text-react-renderer";
 import { useLoaderData, Link, useParams } from "@remix-run/react";
 import { format } from "date-fns";
@@ -10,7 +10,8 @@ const Post = ({ blok }: PostStoryblok) => {
   const { publishDate, id, name } = useLoaderData();
   const slug = useParams()["*"];
 
-  const { headline, content, categories, image, tags, author } = blok;
+  const { headline, content, categories, image, tags, author, post_content } =
+    blok;
   return (
     <article {...storyblokEditable(blok)} key={blok._uid} className="">
       <div className="flex flex-wrap justify-between align-middle mb-7">
@@ -28,6 +29,9 @@ const Post = ({ blok }: PostStoryblok) => {
       <h1>{headline}</h1>
       <Tags tags={tags} className="space-x-2" />
       <div className="content">{render(content)}</div>
+      {post_content?.map((nestedBlok: any) => (
+        <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+      ))}
       <div>
         <div className="flex justify-end">
           <Link

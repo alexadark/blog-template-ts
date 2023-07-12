@@ -26,6 +26,7 @@ import {
   AllCategories,
   AllPosts,
   Author,
+  CodeBlock,
 } from "./components/bloks";
 import Layout from "./components/Layout";
 
@@ -84,6 +85,7 @@ const components = {
   "social-item": SocialItem,
   "footer-column": FooterColumn,
   author: Author,
+  "code-block": CodeBlock,
 };
 
 storyblokInit({
