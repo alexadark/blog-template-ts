@@ -5,8 +5,11 @@ import {
   FaEnvelope as MailIcon,
 } from "react-icons/fa";
 
-const SocialShare = () => {
-  const url = window.location.href;
+interface SocialShareType {
+  url: string | false;
+}
+
+const SocialShare = ({ url }: SocialShareType) => {
   const subject = "Check this out!"; // The subject of the email
   const body = `I thought you might be interested in this: ${url}`;
   const iconStyle =

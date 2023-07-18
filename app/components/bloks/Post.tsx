@@ -13,6 +13,8 @@ const Post = ({ blok }: PostStoryblok) => {
 
   const { headline, content, categories, image, tags, author, post_content } =
     blok;
+
+  const url = typeof window !== "undefined" && window.location.href;
   return (
     <>
       <article {...storyblokEditable(blok)} key={blok._uid} className="">
@@ -44,13 +46,13 @@ const Post = ({ blok }: PostStoryblok) => {
             </Link>
           </div>
         </div>
-        <SocialShare />
+        <SocialShare url={url} />
       </article>
       <DisqusComments
         shortname="remix-blog"
         identifier={id}
         title={name}
-        url={`${window.location.href}`}
+        url={`${typeof window !== "undefined" && window.location.href}`}
       />
     </>
   );
