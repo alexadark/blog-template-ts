@@ -32,7 +32,7 @@ const Post = ({ blok }: PostStoryblok) => {
         )}
         <h1>{headline}</h1>
         <Tags tags={tags} className="space-x-2" />
-        <div className="content">{render(content)}</div>
+
         {post_content?.map((nestedBlok: any) => (
           <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
         ))}
