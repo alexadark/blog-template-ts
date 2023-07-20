@@ -1,5 +1,4 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-import { render } from "storyblok-rich-text-react-renderer";
 import { useLoaderData, Link } from "@remix-run/react";
 import { format } from "date-fns";
 import type { PostStoryblok } from "~/types";
@@ -11,8 +10,7 @@ import SocialShare from "~/components/SocialShare";
 const Post = ({ blok }: PostStoryblok) => {
   const { publishDate, id, name } = useLoaderData();
 
-  const { headline, content, categories, image, tags, author, post_content } =
-    blok;
+  const { headline, categories, image, tags, author, post_content } = blok;
 
   const url = typeof window !== "undefined" && window.location.href;
   return (
