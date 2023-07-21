@@ -7,7 +7,12 @@ const SocialFollow = () => {
   return (
     <div>
       {socialItems.map((item: SocialItemStoryblok) => (
-        <SocialItem key={item._uid} blok={item} />
+        <SocialItem
+          key={item._uid}
+          blok={item}
+          _uid={item._uid}
+          component={"social-item"}
+        />
       ))}
     </div>
   );

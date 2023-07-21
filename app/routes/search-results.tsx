@@ -2,6 +2,8 @@ import { useLoaderData, Link } from "@remix-run/react";
 import { getStoryblokApi } from "@storyblok/react";
 import type { LoaderArgs } from "@remix-run/node";
 import type { StoryblokStory } from "storyblok-generate-ts";
+import type { PostStoryblok, PageStoryblok } from "~/types";
+
 import PostCard from "~/components/PostCard";
 
 export const loader = async ({ request }: LoaderArgs) => {
@@ -48,22 +50,22 @@ const SearchResults = () => {
   return (
     <>
       {pagesResults.length > 0 && <h3>Pages</h3>}
-      {pagesResults?.map((p: StoryblokStory<any>) => {
+      {pagesResults?.map((page: PageStoryblok) => {
         return (
-          <h4 key={p.id}>
+          <h4 key={page.id}>
             <Link
-              to={`/${p.full_slug}`}
+              to={`/${page.full_slug}`}
               className="text-links hover:text-secondary transition-colors duration-300 text-xl"
             >
-              {p.name}
+              {page.name}
             </Link>
           </h4>
         );
       })}
 
       {postsResults.length > 0 && <h3>Posts</h3>}
-      {postsResults?.map((p: StoryblokStory<any>) => {
-        return <PostCard key={p.id} post={p} />;
+      {postsResults?.map((post: PostStoryblok) => {
+        return <PostCard key={post.id} post={post} />;
       })}
     </>
   );

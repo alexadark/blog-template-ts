@@ -3,7 +3,12 @@ import type { PostStoryblok } from "~/types";
 import Categories from "./Categories";
 import { format } from "date-fns";
 
-const PostCard = ({ post, grid }: PostStoryblok) => {
+interface PostCardType {
+  post: PostStoryblok;
+  grid?: boolean;
+}
+
+const PostCard = ({ post, grid }: PostCardType) => {
   const { headline, teaser, categories, image } = post.content;
 
   return (

@@ -1,6 +1,17 @@
 import { useEffect } from "react";
+interface DisqusCommentsProps {
+  shortname: string;
+  identifier: string;
+  title: string;
+  url: string;
+}
 
-function DisqusComments({ shortname, identifier, title, url }) {
+function DisqusComments({
+  shortname,
+  identifier,
+  title,
+  url,
+}: DisqusCommentsProps) {
   useEffect(() => {
     window.disqus_config = function () {
       this.page.url = url;

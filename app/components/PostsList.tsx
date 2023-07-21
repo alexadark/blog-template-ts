@@ -34,7 +34,7 @@ const PostsList = ({ grid, filterQuery = {} }: PostsListType) => {
       filter_query: filterQuery,
     });
 
-    setPosts((prevPosts) => [...prevPosts, ...blog.stories]);
+    setPosts((prevPosts: PostStoryblok[]) => [...prevPosts, ...blog.stories]);
   };
 
   const loadMore = () => {
@@ -44,7 +44,7 @@ const PostsList = ({ grid, filterQuery = {} }: PostsListType) => {
   };
   return (
     <div>
-      <div className={grid && "grid grid-cols-2 gap-5"}>
+      <div className={grid ? "grid grid-cols-2 gap-5" : ""}>
         {posts?.map((p: PostStoryblok) => {
           const post = p.content;
           return <PostCard post={p} key={post?._uid} grid={grid} />;
