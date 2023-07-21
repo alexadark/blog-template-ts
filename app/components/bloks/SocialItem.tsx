@@ -2,14 +2,14 @@ import { storyblokEditable } from "@storyblok/react";
 import type { SocialItemStoryblok } from "~/types";
 
 const SocialItem = ({ blok }: SocialItemStoryblok) => {
-  const { icon, url, name } = blok;
+  const { icon, url, name, _uid } = blok;
   return (
     <a
       href={url.cached_url}
       target="_blank"
+      key={_uid}
       rel="noopener noreferrer"
       {...storyblokEditable(blok)}
-      key={blok._uid}
       className="flex items-center gap-2 mb-5 opacity-50 hover:opacity-100 transition-opacity duration-300"
     >
       <div>

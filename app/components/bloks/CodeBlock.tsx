@@ -1,5 +1,6 @@
 // const storyblokEditable = require("@storyblok/react").storyblokEditable;
 import { storyblokEditable } from "@storyblok/react";
+import type { CodeBlockStoryblok } from "~/types";
 // const SyntaxHighlighter = require("react-syntax-highlighter").Light;
 // const js =
 //   require("react-syntax-highlighter/dist/cjs/languages/hljs/javascript").default;
@@ -8,7 +9,7 @@ import { storyblokEditable } from "@storyblok/react";
 
 // SyntaxHighlighter.registerLanguage("javascript", js);
 
-const CodeBlok = ({ blok }) => {
+const CodeBlok = ({ blok }: CodeBlockStoryblok) => {
   const { code } = blok;
 
   return (
