@@ -20,7 +20,6 @@ import {
   SocialItem,
   Category,
   NavItem,
-  FooterColumn,
   Tag,
   LastPosts,
   AllPosts,
@@ -81,7 +80,6 @@ const components = {
   category: Category,
   tag: Tag,
   "social-item": SocialItem,
-  "footer-column": FooterColumn,
   author: Author,
   "code-block": CodeBlock,
 };
