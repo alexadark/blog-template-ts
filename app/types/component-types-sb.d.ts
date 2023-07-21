@@ -1,12 +1,5 @@
 import {StoryblokStory} from 'storyblok-generate-ts'
 
-export interface AllCategoriesStoryblok {
-  headline?: string;
-  _uid: string;
-  component: "all-categories";
-  [k: string]: any;
-}
-
 export interface RichtextStoryblok {
   type: string;
   content?: RichtextStoryblok[];
@@ -80,6 +73,12 @@ export interface CategoryStoryblok {
   [k: string]: any;
 }
 
+export interface CodeBlockStoryblok {
+  _uid: string;
+  component: "code-block";
+  [k: string]: any;
+}
+
 export interface CommentStoryblok {
   text?: string;
   name?: string;
@@ -93,6 +92,7 @@ export interface ConfigStoryblok {
   header_nav?: NavItemStoryblok[];
   social_items?: SocialItemStoryblok[];
   footer_text?: RichtextStoryblok;
+  posts_per_page?: string;
   _uid: string;
   component: "config";
   [k: string]: any;
@@ -161,14 +161,6 @@ export interface ContentStoryblok {
   [k: string]: any;
 }
 
-export interface FooterColumnStoryblok {
-  headline?: string;
-  footer_menu?: NavItemStoryblok[];
-  _uid: string;
-  component: "footer-column";
-  [k: string]: any;
-}
-
 export interface LastPostsStoryblok {
   headline?: string;
   number_of_posts?: string;
@@ -213,12 +205,12 @@ export interface PostStoryblok {
   headline?: string;
   image?: AssetStoryblok;
   teaser?: string;
-  content?: RichtextStoryblok;
+  post_content?: (CodeBlockStoryblok | ContentStoryblok)[];
   author?: StoryblokStory<AuthorStoryblok> | string;
   categories?: (StoryblokStory<CategoryStoryblok> | string)[];
   tags?: (StoryblokStory<TagStoryblok> | string)[];
-  seo?: SeoStoryblok[];
   comments?: (StoryblokStory<CommentStoryblok> | string)[];
+  seo?: SeoStoryblok[];
   seo_plugin?: {
     _uid?: string;
     title?: string;
@@ -234,13 +226,6 @@ export interface PostStoryblok {
   };
   _uid: string;
   component: "post";
-  [k: string]: any;
-}
-
-export interface PostsArchiveStoryblok {
-  headline?: string;
-  _uid: string;
-  component: "posts-archive";
   [k: string]: any;
 }
 
