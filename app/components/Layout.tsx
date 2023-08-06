@@ -1,7 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import LeftSidebar from "./LeftSidebar";
-import { useLoaderData } from "@remix-run/react";
 
 type Props = {
   children: JSX.Element;
