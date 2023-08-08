@@ -1,19 +1,19 @@
-import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-import { useLoaderData, Link } from "@remix-run/react";
-import { format } from "date-fns";
-import type { PostStoryblok } from "~/types";
-import Categories from "~/components/Categories";
-import Tags from "~/components/Tags";
-import DisqusComments from "~/components/DisqusComments";
-import SocialShare from "~/components/SocialShare";
-import AuthorBox from "~/components/AuthorBox";
+import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import { useLoaderData } from '@remix-run/react'
+import { format } from 'date-fns'
+import type { PostStoryblok } from '~/types'
+import Categories from '~/components/Categories'
+import Tags from '~/components/Tags'
+import DisqusComments from '~/components/DisqusComments'
+import SocialShare from '~/components/SocialShare'
+import AuthorBox from '~/components/AuthorBox'
 
 const Post = ({ blok }: PostStoryblok) => {
-  const { publishDate, id, name } = useLoaderData();
+  const { publishDate, id, name } = useLoaderData()
 
-  const { headline, categories, image, tags, author, post_content } = blok;
+  const { headline, categories, image, tags, author, post_content } = blok
 
-  const url = typeof window !== "undefined" && window.location.href;
+  const url = typeof window !== 'undefined' && window.location.href
   return (
     <>
       <article
@@ -23,7 +23,7 @@ const Post = ({ blok }: PostStoryblok) => {
       >
         <div className="flex flex-wrap justify-between align-middle mb-7">
           <div className="mr-5 text-lg font-bold text-primary">
-            {format(new Date(publishDate), "MMMM dd, yyyy")}
+            {format(new Date(publishDate), 'MMMM dd, yyyy')}
           </div>
           <Categories categories={categories} className="space-x-2" />
         </div>
@@ -41,22 +41,21 @@ const Post = ({ blok }: PostStoryblok) => {
         ))}
 
         <div className="flex justify-center xl:hidden">
-          <AuthorBox author={author} />
+          <AuthorBox author={author} component={'author'} />
         </div>
-
-        <SocialShare url={url} />
+        {url && <SocialShare url={url} />}
       </article>
       <aside className="fixed z-10 top-[4.6rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-6 px-8 overflow-y-auto hidden xl:block">
-        <AuthorBox author={author} />
+        <AuthorBox author={author} component={'author'} />
       </aside>
       <DisqusComments
         shortname="remix-blog"
         identifier={id}
         title={name}
-        url={`${typeof window !== "undefined" && window.location.href}`}
+        url={`${typeof window !== 'undefined' && window.location.href}`}
       />
     </>
-  );
-};
+  )
+}
 
-export default Post;
+export default Post
