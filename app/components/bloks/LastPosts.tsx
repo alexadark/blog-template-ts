@@ -1,18 +1,19 @@
-import { storyblokEditable } from "@storyblok/react";
-import { useLoaderData, Link } from "@remix-run/react";
-import type { LastPostsStoryblok, PostStoryblok } from "~/types";
-import PostCard from "../PostCard";
+import { storyblokEditable } from '@storyblok/react'
+import { useLoaderData, Link } from '@remix-run/react'
+import type { LastPostsStoryblok, PostStoryblok } from '~/types'
+import PostCard from '../PostCard'
 
 const LastPosts = ({ blok }: LastPostsStoryblok) => {
-  const { _uid, headline, grid } = blok;
-  const { lastPosts } = useLoaderData();
+  const { headline, grid } = blok
+  const { lastPosts } = useLoaderData()
+  console.log({ lastPosts })
 
   return (
-    <div {...storyblokEditable(blok)} key={_uid} className="center-container">
+    <div {...storyblokEditable(blok)} className="center-container">
       <h2>{headline}</h2>
-      <div className={grid && "grid grid-cols-2 gap-5"}>
+      <div className={grid && 'grid grid-cols-2 gap-5'}>
         {lastPosts.map((post: PostStoryblok) => {
-          return <PostCard post={post} key={post._uid} grid={grid} />;
+          return <PostCard post={post} key={post.id} grid={grid} />
         })}
       </div>
       <div className="flex justify-center mt-10">
@@ -21,7 +22,7 @@ const LastPosts = ({ blok }: LastPostsStoryblok) => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LastPosts;
+export default LastPosts

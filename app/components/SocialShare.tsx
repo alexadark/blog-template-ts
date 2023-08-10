@@ -3,17 +3,17 @@ import {
   FaLinkedinIn as LinkedinIcon,
   FaFacebookF as FbIcon,
   FaEnvelope as MailIcon,
-} from "react-icons/fa";
+} from 'react-icons/fa'
 
 interface SocialShareType {
-  url: string | false;
+  url: string | false
 }
 
 const SocialShare = ({ url }: SocialShareType) => {
-  const subject = "Check this out!"; // The subject of the email
-  const body = `I thought you might be interested in this: ${url}`;
+  const subject = 'Check this out!' // The subject of the email
+  const body = `I thought you might be interested in this: ${url}`
   const iconStyle =
-    "text-2xl hover:text-secondary transition duration-500 hover:-translate-y-1";
+    'text-2xl hover:text-secondary transition duration-500 hover:-translate-y-1'
   return (
     <div className="flex flex-col items-center mb-10">
       <h4 className="text-2xl mb-5">Share this!</h4>
@@ -50,7 +50,7 @@ const SocialShare = ({ url }: SocialShareType) => {
         </a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SocialShare;
+export default SocialShare
